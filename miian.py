@@ -6,26 +6,35 @@
 #os.getcwd()
 #os.chdir('C:\\Users\\miiam\\OneDrive\\Documents\\Academy\\Week 9\\Wordgame')
 
-### Varsinainen sanapeli ###
-
 #importataan sanalista
-sanalista = open("wordlist.txt", "r")
 
+from itertools import combinations
+from itertools import permutations
 
-# Kysytään sana mitä halutaan etsiä
-print("Minkä sanan haluat etsiä")
-sana = input()
+def aloita():
+    sanalista = open("wordlist.txt", "r")
+    sanalista = list(sanalista)
 
-index = 0
-while index < len(sana):
-    sana[index]
-    index +=1
+    uusilista = []
+    for sana in sanalista:
+        uusilista.append(sana.replace("\n", ""))
 
+    return uusilista
 
+# Get all combinations
+def kombinaatiot(sana):
+    for i in range(len(sana)):
+        comb = combinations(list(sana), i+1)
+        # Get all permutations
+        print(list(comb))
+        #EI TOIMI
+        #perm = permutations(list(comb))
+        # Print the obtained permutations
+        #for j in list(perm):
+            #print(j)
 
-while True:
-    sanat = sanalista.readline() # Luetaan tiedostosta rivi
-    if len(sanalista) == 0: # Jos rivin pituus on 0, ollaan lopussa
-        break
-    print(sanalista, end = "")
-sanalista.close()
+def etsi_sanat(merkkijono, lista):
+    return [sana for sana in lista if merkkijono in sana]
+
+#print(etsi_sanat("moi", aloita()))
+print(kombinaatiot("moi"))
