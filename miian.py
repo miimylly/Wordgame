@@ -1,11 +1,18 @@
-import sys
-print(sys.path)
-sys.path.append('C:\\Users\\miiam\\OneDrive\\Documents\\Academy\\Week 9\\Wordgame')
-
-
+#tässä sotkua että voidaan lukea samasta working directorysta kuin missä ollaan AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+#import sys
+#import os
+#print(sys.path)
+#sys.path.append('C:\\Users\\miiam\\OneDrive\\Documents\\Academy\\Week 9\\Wordgame')
+#os.getcwd()
+#os.chdir('C:\\Users\\miiam\\OneDrive\\Documents\\Academy\\Week 9\\Wordgame')
 
 ### Varsinainen sanapeli ###
 
+#importataan sanalista
+sanalista = open("wordlist.txt", "r")
+
+
+# Kysytään sana mitä halutaan etsiä
 print("Minkä sanan haluat etsiä")
 sana = input()
 
@@ -14,7 +21,7 @@ while index < len(sana):
     sana[index]
     index +=1
 
-sanalista = open("words.txt", "r", encoding="utf-8")
+
 
 while True:
     sanat = sanalista.readline() # Luetaan tiedostosta rivi
